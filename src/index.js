@@ -1,13 +1,57 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import Post from "./Post";
+import reportWebVitals from "./reportWebVitals";
+import { CssBaseline, Container } from "@mui/material";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const postComments = [
+  {
+    name: "Dominic Toretto",
+    date: "01/01/2020",
+    body: "Family!"
+  },
+  {
+    name: "John Doe",
+    date: "01/02/2020",
+    body: "Yolo!"
+  },
+  {
+    name: "Sheldon Cooper",
+    date: "01/03/2020",
+    body: "Baziingaa!"
+  }
+];
+
+const authorsList = [
+  {
+    name: "Dominic Toretto",
+    social: "@dom_family",
+  },
+  {
+    name: "Carl Sagan",
+    social: "@carl_space",
+  },
+];
+
+const post = {
+  title: "Spaceships are Awesome",
+  authors: authorsList,
+  body: "Spaceships go zooom!",
+  comments: postComments
+};
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <React.StrictMode>
-    <App />
+    <CssBaseline />
+    <Container fixed>
+      <Post
+        title={post.title}
+        authors={post.authors}
+        body={post.body}
+        comments={post.comments}
+      />
+    </Container>
   </React.StrictMode>
 );
 
